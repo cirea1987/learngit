@@ -1,0 +1,57 @@
+<!-- Top Navbar-->
+<div class="navbar">
+    <div class="navbar-inner" style="background:#ffffff; border-bottom:1px solid #ccc">
+        <div class="left">
+            <a href="#" class="back link" style="color:#666666; width:40px"><i style="font-size: 14px;" class="fa fa-chevron-left"></i></a>
+        </div>
+        <div class="center sliding" id="xm-title">领导批示</div>
+        <!-- <div class="right">
+     <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+    </div> -->
+    </div>
+</div>
+<div class="pages">
+    <!-- Page, data-page contains page name-->
+    <div data-page="ldpishi" class="page">
+        <!-- Scrollable page content-->
+        <div class="page-content">
+            <div class="container" style="padding:50px 16px 20px;width:inherit">
+                <div class="row">
+                    <div class="col-50" style="padding-left:0px;line-height:30px; color:#ff9500">领导批示</div>
+                    <div class="col-50" style="text-align:right;padding-left:0px;line-height:30px;">
+                        <a href="#" class="button active" onclick="pishtj()" style="width: 50%;float: right;">
+                            提交
+                        </a>
+                    </div>
+
+                    <div class="col-100" style="padding:4px;">
+                        <textarea id="ly_content" style="height:100%;width:100%;border: 1px solid #ddd; "
+                            name="ly_content">
+                    </textarea>
+                        <input id="pid" type="hidden" name="ly_pid">
+                    </div>
+                </div>
+            </div>
+            <div class="list-block media-list" id="pagenum" data-page="1">
+                <div class="" style="padding:0 16px;color:#ff9500">批示列表</div>
+                <ul id="pishilist" v-cloak>
+                    <li v-if="pishilist.length == 0">暂无批示</li>
+                    <li v-for="(item,index) of pishilist">
+                        <div class="item-inner" @click="change_zhan(index)" v-bind:class="{'item-inner-zhan':index==flag}">
+                            <div class="item-title-row" style="padding-bottom:10px;">
+                                <div class="item-title">{{item.realname}}</div>
+                                <div class="item-after">{{item.time}}</div>
+                            </div>
+
+                            <div class="item-text">{{item.content}}
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>

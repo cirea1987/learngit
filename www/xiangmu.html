@@ -1,0 +1,54 @@
+<!-- Top Navbar-->
+<div class="navbar">
+  <div class="navbar-inner" style="background:#3976FE; ">
+    <!-- <div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div> -->
+    <div class="center sliding" id="catname" style="color: #fff">项目列表</div>
+  </div>
+</div>
+<div class="pages xq">
+  <!-- Page, data-page contains page name-->
+  <div data-page="xiangmu" class="page xq">
+
+    <!-- Scrollable page content-->
+    <div class="page-content" >
+      <div class="content-block" style="padding: 0 7px;">
+        <!-- tabs控制面板 -->
+        <div class="buttons-row" id="tab-head"  v-cloak >
+          <!-- 关联到第一个tab, 默认激活 -->
+          <a :href="'#tab'+item.type" v-for="(item,index,key) of tablist" v-bind:class="{ active: !item.type }" class="tab-link button">{{item.name}}</a>
+        </div>
+      </div>
+      <div class="tabs" id="tab-body"  v-cloak>
+        <div :id="'tab'+item.type" class="tab infinite-scroll" data-page="1" :data-key="item.type"  v-bind:class="{ active: !item.type }" v-for="(item,index) of tabbody_list">
+          <div class="list-block xq-list">
+            <div v-if="item.data.length == 0">没有数据</div>
+            <ul id="xiangmulist">
+              <li v-for="(item1,index1,key1) of item.data">
+                <a :href="'javascript:form('+item1.id+',\''+item.name+'\')'" class="item-link">
+                  <div class="item-content">
+                    <div class="item-media">
+                      <img src="image/xq_icon.png" />
+                    </div>
+                    <div class="item-inner">
+                      <div class="item-title">{{item1.title}}</div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="content-block" v-if="item.data.length==10" >
+              <p class="buttons-row">
+                <a :href="'javascript:get_item_more('+item.type+')'"  class="shenhe button button-fill button-raised">
+                查看更多
+                </a>
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a v-if="roleid == 10" id="addbutton" href="javascript:addxm();" class="floating-button color-pink">
+        <i class="icon icon-plus">+</i>
+      </a>
+  </div>
+</div>

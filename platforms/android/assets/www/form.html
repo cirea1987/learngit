@@ -1,0 +1,251 @@
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner" style="background:#ffffff; border-bottom:1px solid #ccc">
+		<div class="left">
+			<a href="#" class="back link" style="color:#666666; width:40px"><i style="font-size: 14px;" class="fa fa-chevron-left"></i></a>
+		</div>
+		<div class="center sliding" id="xm-title">需求详情</div>
+		<!-- <div class="right">
+     <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+    </div> -->
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="form" class="page">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="list-block">
+				<div class="data-table" id="xmcontent" v-cloak>
+					<div class="showcon hezuosh">
+						<!-- <h4 class="hezuo-tit">基本情况</h4> -->
+						<table border="0" cellpadding="1" cellspacing="1" style="width:100%;">
+							<tbody>
+								<tr>
+									<td>项目名称</td>
+									<td>{{xmcontent.title}}</td>
+								</tr>
+								<tr>
+									<td>项目来源</td>
+									<td>{{xmcontent.area_select}}</td>
+								</tr>
+								<tr>
+									<td>合作地</td>
+									<td>{{xmcontent.area}}</td>
+								</tr>
+								<tr>
+									<td>所属行业</td>
+									<td>{{xmcontent.industry_type}}</td>
+								</tr>
+								<tr>
+									<td>项目金额</td>
+									<td>{{xmcontent.amount}}</td>
+								</tr>
+								<tr>
+									<td>合作方式</td>
+									<td>{{xmcontent.dtype_name}}</td>
+								</tr>
+								<tr>
+									<td>主要建设内容</td>
+									<td>{{xmcontent.content}}</td>
+								</tr>
+								<tr>
+									<td>企业名称</td>
+									<td>{{xmcontent.cname}}</td>
+								</tr>
+								<tr>
+									<td>联系人</td>
+									<td>{{xmcontent.suser}}</td>
+								</tr>
+								<tr>
+									<td>联系电话</td>
+									<td>{{xmcontent.phone}}</td>
+								</tr>
+								<tr>
+									<td>已有条件（厂房、土地等情况）</td>
+									<td>{{xmcontent.existing_condition}}</td>
+								</tr>
+								<tr>
+									<td>引进资本</td>
+									<td>{{xmcontent.introducing_capital}}</td>
+								</tr>
+								<tr>
+									<td>引进人才</td>
+									<td>{{xmcontent.introducing_talent}}</td>
+								</tr>
+								<tr>
+									<td>引进管理</td>
+									<td>{{xmcontent.introduction_management}}</td>
+								</tr>
+								<tr>
+									<td>走出去投资</td>
+									<td>{{xmcontent.out_invest}}</td>
+								</tr>
+								<tr v-for="(item , index) of xmcontent.sdKey">
+									<td>{{item.ctname}}</td>
+									<td>{{item.content}}</td>
+								</tr>
+								<tr>
+									<td>审核状态</td>
+									<td>
+										<p style="margin:0" v-if="xmcontent.astatus==='1'">未审核</p>
+										<p style="margin:0" v-else-if="xmcontent.astatus==='2'">审核通过</p>
+										<p style="margin:0" v-else>审核未通过</p>
+									</td>
+								</tr>
+								<tr v-if="xmcontent.fenpeitime">
+									<td>指派时间</td>
+									<td>
+										{{xmcontent.fenpeitime}}
+									</td>
+								</tr>
+								<tr v-if="xmcontent.fabutime">
+									<td>发布时间</td>
+									<td>
+										{{xmcontent.fabutime}}
+									</td>
+								</tr>
+								<tr v-if="xmcontent.operator">
+									<td>项目状态</td>
+									<td>
+										<div v-if="typeof(xmcontent.status) =='object' && xmcontent.status !=null ">
+											<label class="label-checkbox item-content" style="float:left">
+
+												<!--<input type="checkbox" name="info[status][]" :checked="{ true: xmcontent.status.indexOf('1') === -1 }" disabled value="1">-->
+												<div class="item-media" style="padding-top:0">
+													<i class="icon icon-form-checkbox" :class="{ active: xmcontent.status.indexOf('1') != -1 }"></i>
+												</div>
+												<div class="item-inner" style="height:30px; min-height:30px;padding-top:0">
+													<div class="item-title">在谈</div>
+												</div>
+											</label>
+											<label class="label-checkbox item-content" style="float:left">
+
+												<!--<input type="checkbox" name="info[status][]" disabled v-model="checklist" value="4">-->
+												<div class="item-media" style="padding-top:0">
+													<i class="icon icon-form-checkbox" :class="{ active: xmcontent.status.indexOf('4') != -1 }"></i>
+												</div>
+												<div class="item-inner" style="height:30px; min-height:30px;padding-top:0">
+													<div class="item-title">签约</div>
+												</div>
+											</label>
+											<label class="label-checkbox item-content" style="float:left">
+
+												<!--<input type="checkbox" name="info[status][]" disabled v-model="checklist" value="5">-->
+												<div class="item-media" style="padding-top:0">
+													<i class="icon icon-form-checkbox" :class="{ active: xmcontent.status.indexOf('5') != -1 }"></i>
+												</div>
+												<div class="item-inner" style="height:30px;  min-height:30px;padding-top:0">
+													<div class="item-title">注册</div>
+												</div>
+											</label>
+											<label class="label-checkbox item-content" style="float:left">
+
+												<!--<input type="checkbox" name="info[status][]" disabled v-model="checklist" value="6">-->
+												<div class="item-media" style="padding-top:0">
+													<i class="icon icon-form-checkbox" :class="{ active: xmcontent.status.indexOf('6') != -1 }"></i>
+												</div>
+												<div class="item-inner" style="height:30px; min-height:30px; padding-top:0">
+													<div class="item-title">外资到位</div>
+												</div>
+											</label>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="content-block" v-if="roleid==9">
+						<p class="buttons-row"><button v-if="xmcontent.astatus < 2" id="shenhe" :onclick="'shenhe('+xmcontent.id+')'"
+							 class="shenhe button button-big button-fill button-raised color-pink">审核</button><button class="button button-big button-fill button-raised color-teal"
+							 :onclick="'zhipai('+xmcontent.id+')'">指派</button></p>
+					</div>
+					<div class="content-block" v-if="roleid==11 || roleid==12 ">
+						<p class="buttons-row"><button :onclick="'pishi('+xmcontent.id+')'" class="shenhe button button-big button-fill button-raised">批示</button></p>
+					</div>
+					<div v-if="roleid==10">
+						<div v-if="xmcontent.astatus > 0">
+							<div class="content-block" v-if="action=='item'">
+								<p class="buttons-row"><button :onclick="'chuli('+xmcontent.id+')'" class="shenhe button button-big button-fill button-raised color-yellow">处理</button><button
+									 class="button button-big button-fill button-raised color-red" :onclick="'tuihui('+xmcontent.id+')'">打回</button><button
+									 class="button button-big button-fill button-raised color-teal" :onclick="'zhuanzhi('+xmcontent.id+')'">转指给</button></p>
+							</div>
+						</div>
+						<div class="content-block" v-if="action=='item_true'">
+							<p class="buttons-row"><button :onclick="'bianji('+xmcontent.id+')'" class="shenhe button button-big button-fill button-raised">编辑</button>
+								<button v-if="zijinload" :onclick="'jindu_xiu('+xmcontent.id+')'" class="shenhe button button-big button-fill button-raised color-red">进度</button>
+							</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="popup popup-fenpei">
+				<div class="list-block" style="padding:0 10px;">
+				  <p class="close-popup">关闭</p>
+				  <div class="tanchu-tit">选择办事人员</div>
+				  <input type="hidden" name="demand_id" id="demand_id">
+				  <ul class="choose-st" id="bumenlist" v-cloak>
+					<li v-for="(item,index) of bumenlist">
+					  <label class="label-checkbox item-content" @click="selecet(index)">
+						<!-- Checked by default -->
+						<input value="zhong" name="lang" type="checkbox" :id="index" />
+						<div class="item-media">
+						  <i class="icon icon-form-checkbox"></i>
+						</div>
+						<div class="item-inner">
+						  <div class="item-title">{{item.name}}</div>
+						</div>
+					  </label>
+					  <div class="person_list" :id="'person_'+index">
+						<select name="userid" :id="'userid_'+index">
+						  <option value="">请选择</option>
+						  <option v-for="(item1,index1) of  item.person" :value="item1.userid">{{item1.realname}}</option>
+						</select>
+					  </div>
+			
+					</li>
+			
+			
+				  </ul>
+			
+				  <div class="sttijiao">
+					<a onclick="sub()" class="button active">提交</a>
+				  </div>
+				</div>
+			  </div>
+			  <div class="popup popup-zhuanzhi">
+				<div class="list-block" style="padding:0 10px;">
+				  <p class="close-popup">关闭</p>
+				  <div class="tanchu-tit">选择办事人员</div>
+				  <input type="hidden" name="demand_id" id="demand_zhuanzhi_id">
+				  <ul class="choose-st" id="zhuanzhi_bumenlist" v-cloak >
+					<li v-for="(item,index) of bumenlist">
+					  <label class="label-checkbox item-content" @click="selecet(index)">
+						<!-- Checked by default -->
+						<input value="zhong" name="lang" type="checkbox" :id="'z_'+index" />
+						<div class="item-media">
+						  <i class="icon icon-form-checkbox"></i>
+						</div>
+						<div class="item-inner">
+						  <div class="item-title">{{item.name}}</div>
+						</div>
+					  </label>
+					  <div class="person_list" :id="'zperson_'+index">
+						<select name="userid" :id="'zuserid_'+index">
+						  <option value="">请选择</option>
+						  <option v-for="(item1,index1) of  item.person" v-if="item1.userid != userid" :value="item1.userid">{{item1.realname}}</option>
+						</select>
+					  </div>
+					</li>
+				  </ul>
+				  <div class="sttijiao">
+			  <a onclick="sub_zhuanzhi()" class="button active">提交</a>
+				  </div>
+				</div>
+			  </div>  
+		</div>
+	
+	</div>
+
+</div>

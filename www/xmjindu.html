@@ -1,0 +1,116 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background:#ffffff; border-bottom:1px solid #ccc">
+        <div class="left">
+            <a href="#" class="back link" style="color:#666666; width:40px"><i style="font-size: 14px;" class="fa fa-chevron-left"></i></a>
+        </div>
+        <div class="center sliding" id="xm-title">资金情况</div>
+    </div>
+</div>
+<div class="pages">
+    <!-- Page, data-page contains page name-->
+    <div data-page="xmjindu" class="page">
+        <!-- Scrollable page content-->
+        <div class="page-content">
+
+            <div class="list-block" style="padding:0 10px; margin-top:55px">
+                <form id="jindu_form" onsubmit="return false">
+                <input type="hidden" name="demand_id" id="demand_id" :value="id">
+                <input type="hidden" id="jindu_num" name="num" value="1">
+                <ul>
+                    <li id="jindu" style="margin-bottom:20px">
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-settings"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">项目状态</div>
+                                <div class="item-input">
+                                    <label class="label-checkbox item-content">
+
+                                        <input type="checkbox" name="info[status][]" v-model="checklist" value="1">
+                                        <div class="item-media">
+                                            <i class="icon icon-form-checkbox"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">在谈</div>
+                                        </div>
+                                    </label>
+                                    <!-- <label class="label-checkbox item-content">
+                
+                                <input type="checkbox" name="info[status][]" v-model="checklist" value="2">
+                                <div class="item-media">
+                                  <i class="icon icon-form-checkbox"></i>
+                                </div>
+                                <div class="item-inner">
+                                  <div class="item-title">评审</div>
+                                </div>
+                              </label>
+                              <label class="label-checkbox item-content">
+                
+                                <input type="checkbox" name="info[status][]" v-model="checklist" value="3">
+                                <div class="item-media">
+                                  <i class="icon icon-form-checkbox"></i>
+                                </div>
+                                <div class="item-inner">
+                                  <div class="item-title">决策</div>
+                                </div>
+                              </label> -->
+                                    <label class="label-checkbox item-content">
+
+                                        <input type="checkbox" name="info[status][]" v-model="checklist" value="4">
+                                        <div class="item-media">
+                                            <i class="icon icon-form-checkbox"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">签约</div>
+                                        </div>
+                                    </label>
+                                    <label class="label-checkbox item-content">
+
+                                        <input type="checkbox" name="info[status][]" v-model="checklist" value="5">
+                                        <div class="item-media">
+                                            <i class="icon icon-form-checkbox"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">注册</div>
+                                        </div>
+                                    </label>
+                                    <label class="label-checkbox item-content">
+
+                                        <input type="checkbox" name="info[status][]" v-model="checklist" value="6">
+                                        <div class="item-media">
+                                            <i class="icon icon-form-checkbox"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">外资到位</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="height:30px;margin-bottom:20px">
+                        <div style="width:30%; float:left">资金情况：</div><button style="float:right" class="button button-fill button-raised"
+                            onclick="add_amount()">添加</button>
+                    </li>
+                    <li>
+                        <div id="in_amount" v-cloak>
+                            <div v-for="(item,index) of amout_items" style="border: 1px solid #dddddd;padding: 3px;margin: 3px 0;"
+                                :class="'del_'+(index+100)">
+                                <div class="jine"><span>金额：</span><input type="text" :name="'adata['+(index+100)+'][amout]'"
+                                        :value="item.amout" /> 万元</div>
+                                <div class="daozhang"><span>到账时间：</span><input :id="'start_time_'+(index+100)" type="date"
+                                        :name="'adata['+(index+100)+'][get_time]'" :value="item.get_time" /><button
+                                        class="button button-fill button-raised shanchu" type="button" :onclick="'delamout('+(index+100)+')'">删除</button></div>
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
+                </form>
+                <div class="sttijiao">
+                   <a onclick="sub_jindu()" class="button active">提交</a> 
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

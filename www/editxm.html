@@ -1,0 +1,361 @@
+
+<div class="navbar">
+    <div class="navbar-inner" style="background:#ffffff; border-bottom:1px solid #ccc">
+      <div class="left">
+        <a href="#" class="back link" style="color:#666666; width:40px"><i style="font-size: 14px;" class="fa fa-chevron-left"></i></a> </div>
+              <div class="center sliding" id="xm-title">编辑页面</div>
+      <!-- <div class="right">
+       <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+      </div> -->
+    </div>
+  </div>
+<div class="pages">
+  <!-- Page, data-page contains page name-->
+  <div data-page="editxm" class="page">
+    <!-- Scrollable page content-->
+    <div class="page-content">
+
+      <div style="width: 100%;margin-left: 0px; margin-top:50px">
+            <div class="div" id="tuisong" style="padding:0 10px;"><span>项目推送到站点： </span>
+              <div  style="height:60px">
+                <label class="label-radio item-content" onclick="add_content(1)" style="width:20%; float:left">
+                  <!-- Checked by default -->
+                  <input type="radio" name="my-radio" value="1" checked="checked">
+                  <div class="item-media">
+                    <i class="icon icon-form-radio"></i>
+                  </div>
+                  <div class="item-inner">
+                    <div class="item-title">中</div>
+                  </div>
+                </label>
+                <label class="label-radio item-content" onclick="add_content(2)" style="width:20%; float:left">
+                  <!-- Checked by default -->
+                  <input type="radio" name="my-radio" value="2">
+                  <div class="item-media">
+                    <i class="icon icon-form-radio"></i>
+                  </div>
+                  <div class="item-inner">
+                    <div class="item-title">英</div>
+                  </div>
+                </label>
+                <label class="label-radio item-content" onclick="add_content(4)" style="width:20%; float:left">
+                  <!-- Checked by default -->
+                  <input type="radio" name="my-radio" value="3">
+                  <div class="item-media">
+                    <i class="icon icon-form-radio"></i>
+                  </div>
+                  <div class="item-inner">
+                    <div class="item-title">韩</div>
+                  </div>
+                </label>
+                <label class="label-radio item-content" onclick="add_content(3)" style="width:20%; float:left">
+                  <!-- Checked by default -->
+                  <input type="radio" name="my-radio" value="4">
+                  <div class="item-media">
+                    <i class="icon icon-form-radio"></i>
+                  </div>
+                  <div class="item-inner">
+                    <div class="item-title">德</div>
+                  </div>
+                </label>
+                <label class="label-radio item-content" onclick="add_content(5)" style="width:20%; float:left">
+                  <!-- Checked by default -->
+                  <input type="radio" name="my-radio" value="5">
+                  <div class="item-media">
+                    <i class="icon icon-form-radio"></i>
+                  </div>
+                  <div class="item-inner">
+                    <div class="item-title">日</div>
+                  </div>
+                </label>
+        
+              </div>
+            </div>
+            <div class="list-block addxm" id="chulixm">
+              <form id="sub_chuli">
+                <input type="hidden" name="info[astatus]" value="2">
+                <ul>
+                  <li>
+                    <input type="hidden" name="type" id="type" value="">
+                    <input type="hidden" name="oid" :value="items.id">
+                    <input type="hidden" id="lan" name="info[country]" value="1">
+                    <input type="hidden" id="from_lan" name="info[from_lan]" :value="items.country">
+                    <input type="hidden" name="info[cid]" :value="items.cid">
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-name"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">需求名称</div>
+                        <div class="item-input">
+                          <input type="text" :value="items.title" name="info[title]" placeholder="输入需求名称">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-name"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">企业名称</div>
+                        <div class="item-input">
+                          <input type="text" v-model="items.cname" name="info[cname]" placeholder="输入企业名称">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-email"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">企业联系人</div>
+                        <div class="item-input">
+                          <input type="text" v-model="items.suser" name="info[suser]" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+        
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-email"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">联系电话</div>
+                        <div class="item-input">
+                          <input type="text" v-model="items.phone" name="info[phone]" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li id="hezuo">
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">合作类型</div>
+                        <div class="item-input">
+                          <select id="dtype" name="info[dtype]"  onchange="findCkey();">
+                            <option value="33">技术合作</option>
+                            <option value="34">资金合作</option>
+                            <option value="35">人才合作</option>
+                            <option value="36">项目合作</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li id="laiyuan">
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">项目来源</div>
+                        <div class="item-input">
+                          <select id="area_select" name="info[area_select]">
+                            <option value="境内">境内</option>
+                            <option value="境外">境外</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-email"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">金额</div>
+                        <div class="item-input">
+                          <input type="text" name="info[amount]" v-model="items.amount" placeholder="万元">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-name"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">合作地</div>
+                        <div class="item-input">
+                          <input type="text" name="info[area]" v-model="items.area" placeholder="合作地">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+        
+                  <li id="hangye">
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">行业类型</div>
+                        <div class="item-input">
+                          <select id="industry_type" name="info[industry_type]">
+                            <option value="消费电子产业">消费电子产业</option>
+                            <option value="汽车产业">汽车产业</option>
+                            <option value="化工新材料产业">化工新材料产业</option>
+                            <option value="生物医药与健康产业">生物医药与健康产业</option>
+                            <option value="节能环保产业">节能环保产业</option>
+                            <option value="智能制造产业">智能制造产业</option>
+                            <option value="化工新材料产业">化工新材料产业</option>
+                            <option value="半导体产业">半导体产业</option>
+                            <option value="海洋科技产业">海洋科技产业</option>
+                            <option value="大数据与云计算产业">大数据与云计算产业</option>
+                            <option value="新能源产业">新能源产业</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <!-- <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">审核</div>
+                        <div class="item-input">
+                          <select name="info[astatus]">
+                            <option value="2">通过审核</option>
+                            <option value="3">审核失败</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </li> -->
+                  <!-- <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-settings"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">项目状态</div>
+                        <div class="item-input">
+                          <label class="label-checkbox item-content">
+        
+                            <input type="checkbox" name="info[status][]" v-model="checklist" value="1">
+                            <div class="item-media">
+                              <i class="icon icon-form-checkbox"></i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">在谈</div>
+                            </div>
+                          </label> -->
+                          <!-- <label class="label-checkbox item-content">
+        
+                            <input type="checkbox" name="info[status][]" v-model="checklist" value="2">
+                            <div class="item-media">
+                              <i class="icon icon-form-checkbox"></i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">评审</div>
+                            </div>
+                          </label>
+                          <label class="label-checkbox item-content">
+        
+                            <input type="checkbox" name="info[status][]" v-model="checklist" value="3">
+                            <div class="item-media">
+                              <i class="icon icon-form-checkbox"></i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">决策</div>
+                            </div>
+                          </label> -->
+                          <!-- <label class="label-checkbox item-content">
+        
+                            <input type="checkbox" name="info[status][]" v-model="checklist" value="4">
+                            <div class="item-media">
+                              <i class="icon icon-form-checkbox"></i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">签约</div>
+                            </div>
+                          </label>
+                          <label class="label-checkbox item-content">
+        
+                            <input type="checkbox" name="info[status][]" v-model="checklist" value="5">
+                            <div class="item-media">
+                              <i class="icon icon-form-checkbox"></i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">注册</div>
+                            </div>
+                          </label>
+                          <label class="label-checkbox item-content">
+        
+                            <input type="checkbox" name="info[status][]" v-model="checklist" value="6">
+                            <div class="item-media">
+                              <i class="icon icon-form-checkbox"></i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">外资到位</div>
+                            </div>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </li> -->
+                  <li class="align-top">
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-comment"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">主要建设内容</div>
+                        <div class="item-input">
+                          <textarea name="info[content]">{{items.content}}</textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="align-top">
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-comment"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">已有条件</div>
+                        <div class="item-input">
+                          <textarea name="info[existing_condition]">{{items.existing_condition}}</textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="align-top">
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-comment"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">引进资本</div>
+                        <div class="item-input">
+                          <textarea name="info[introducing_capital]">{{items.introducing_capital}}</textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="align-top">
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-comment"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">引进人才</div>
+                        <div class="item-input">
+                          <textarea name="info[introducing_talent]">{{items.introducing_talent}}</textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="align-top">
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-comment"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">引进管理</div>
+                        <div class="item-input">
+                          <textarea name="info[introduction_management]">{{items.introduction_management}}</textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="align-top">
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-form-comment"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title label">走出去投资</div>
+                        <div class="item-input">
+                          <textarea name="info[out_invest]">{{items.out_invest}}</textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </form>
+              <p class="buttons-row" style="padding:0 16px;"><button class="button button-big button-fill button-raised" @click="on_sub()">提交</button></p>
+            </div>
+         </div>
+       </div>
+    </div>
+  </div>

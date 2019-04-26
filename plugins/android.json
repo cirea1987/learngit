@@ -1,0 +1,30 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "bjt.com.shx"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "bjt.com.shx"
+    },
+    "cordova-plugin-x-toast": {
+      "PACKAGE_NAME": "bjt.com.shx"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "bjt.com.shx"
+    },
+    "cordova-plugin-spinner-dialog": {
+      "PACKAGE_NAME": "bjt.com.shx"
+    },
+    "cordova-plugin-appversion": {
+      "PACKAGE_NAME": "bjt.com.shx"
+    }
+  },
+  "dependent_plugins": {}
+}
