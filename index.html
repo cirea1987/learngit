@@ -1,0 +1,64 @@
+{template "content","com_header"}
+{template "content","com_left"}
+<div class="layui-body adminrt">
+	<div class="layui-fluid">
+		<div class="layui-row">
+			<blockquote class="layui-elem-quote">
+				<h3>安全设置</h3>
+			</blockquote>
+			<form class="layui-form" enctype="multipart/form-data" onsubmit="return sub();" name="myform" id="myform" action="?m=content&c=company&a=safe" method="post">
+					<div class="layui-form-item">
+					    <label class="layui-form-label">邮箱：</label>
+					    <div class="layui-input-block">
+					      	<input  type="text" name="email" id="email" class="layui-input" value="{php echo $_COOKIE['company_email']}">
+					    </div>
+					</div>
+					<!--<div class="layui-form-item">
+					    <label class="layui-form-label">新密码</label>
+					    <div class="layui-input-block">
+					      	<input  type="password" name="info[pwd]" id="pwd" class="layui-input" value="">
+					    </div>
+					</div>
+					<div class="layui-form-item">
+					    <label class="layui-form-label">确认密码</label>
+					    <div class="layui-input-block">
+					      	<input  type="password" name="info[re_pwd]" id="re_pwd" class="layui-input" value="">
+					    </div>
+					</div>-->
+					<button class="layui-btn layui-btn-primary" value="提交" type="submit" id="dosubmit" name="dosubmit" >
+								点击绑定
+							</button>
+			</form>
+		</div>
+  	</div>
+</div>
+	<script src="{JS_PATH}jquery-1.11.3.min.js"></script>
+	<script src="{APP_PATH}statics/bootstrap/js/bootstrap.min.js"></script>
+	<script>
+		//判断内容
+		function sub(){
+			var email = $("#email").val();
+			if(email == ''){
+				alert("请输入邮箱！");
+				return false;
+			}
+//			var name = $("#old").val();
+//				var pwd = $("#pwd").val();
+//				var re_pwd = $("#re_pwd").val();
+//				if(old == ''){
+//					alert("请输入原始密码！");
+//					return false;
+//				}else if (pwd == ''){
+//					alert("请输入新密码！");
+//					return false;
+//				}else if (re_pwd == ''){
+//					alert("请输入确认密码！");
+//					return false;
+//				}else if(pwd != re_pwd ){
+//					alert("两次密码输入不一致");
+//					return false;
+//				}
+			
+		}
+	</script>
+{template 'content','com_footer'}
